@@ -1,80 +1,113 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Oy Sayım Çetelesi</title>
-  <style>
-    body {
-      text-align: center;
-      font-family: Arial, sans-serif;
-    }
+  <head>
+    <title>Oy Sayım Çetelesi</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <style>
+      body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
 
-    h1 {
-      margin-top: 20px;
-    }
+      h1 {
+        margin-top: 20px;
+      }
 
-    .person {
-      display: inline-block;
-      margin: 20px;
-    }
+      .person {
+        display: inline-block;
+        margin: 20px;
+      }
 
-    .person img {
-      width: 200px;
-      height: auto;
-      border-radius: 50%;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    }
+      .person img {
+        width: 200px;
+        height: auto;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
 
-    .buttons {
-      margin-top: 10px;
-    }
+      .buttons {
+        margin-top: 10px;
+      }
 
-    .reset-button {
-      margin-top: 20px;
-    }
-  </style>
-</head>
-<body>
-  <h1>Oy Sayım Çetelesi</h1>
-  <div class="person">
-    <img src="img/erdogan.jpg" alt="Recep Tayyip Erdoğan" style="border: 3px solid #333;">
-    <h2>Recep Tayyip Erdoğan</h2>
-    <p id="erdoganCount">Oy sayısı: 0</p>
-    <div class="buttons">
-      <button onclick="increment('erdoganCount')">Artır</button>
-      <button onclick="decrement('erdoganCount')">Azalt</button>
+      .reset-button {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="title is-large">Oy Sayım Çetelesi</h1>
+    <div class="person content">
+      <img
+      class="is-rounded"
+        src="img/erdogan.jpg"
+        alt="Recep Tayyip Erdoğan"
+      />
+      <h2>Recep Tayyip Erdoğan</h2>
+      <p class="content is-medium" id="erdoganCount">Oy sayısı: 0</p>
+      <div class="card-content">
+        <button class="button is-primary" onclick="increment('erdoganCount')">
+          Artır
+        </button>
+        <button class="button is-warning" onclick="decrement('erdoganCount')">
+          Azalt
+        </button>
+      </div>
     </div>
-  </div>
-  <div class="person">
-    <img src="img/kemal.jpg" alt="Kemal Kılıçdaroğlu" style="border: 3px solid #333;">
-    <h2>Kemal Kılıçdaroğlu</h2>
-    <p id="kilicdarogluCount">Oy sayısı: 0</p>
-    <div class="buttons">
-      <button onclick="increment('kilicdarogluCount')">Artır</button>
-      <button onclick="decrement('kilicdarogluCount')">Azalt</button>
+    <div class="person content">
+      <img
+        class="is-rounded is-1by2"
+        src="img/kemal.jpg"
+        alt="Kemal Kılıçdaroğlu"
+      />
+      <h2 class="title">Kemal Kılıçdaroğlu</h2>
+      <p class="content is-medium" id="kilicdarogluCount">Oy sayısı: 0</p>
+      <div class="card-content">
+        <button
+          class="button is-primary"
+          onclick="increment('kilicdarogluCount')"
+        >
+          Artır
+        </button>
+        <button
+          class="button is-warning"
+          onclick="decrement('kilicdarogluCount')"
+        >
+          Azalt
+        </button>
+      </div>
     </div>
-  </div>
-  <button class="reset-button" onclick="resetCounts()">Sıfırla</button>
+    <button
+      class="button is-danger"
+      class="reset-button"
+      onclick="resetCounts()"
+    >
+      Sıfırla
+    </button>
 
-  <script>
-    function increment(id) {
-      var countElement = document.getElementById(id);
-      var count = parseInt(countElement.innerText.split(' ')[2]);
-      countElement.innerText = 'Oy sayısı: ' + (count + 1);
-    }
+    <script>
+      function increment(id) {
+        var countElement = document.getElementById(id);
+        var count = parseInt(countElement.innerText.split(" ")[2]);
+        countElement.innerText = "Oy sayısı: " + (count + 1);
+      }
 
-    function decrement(id) {
-      var countElement = document.getElementById(id);
-      var count = parseInt(countElement.innerText.split(' ')[2]);
-      countElement.innerText = 'Oy sayısı: ' + (count - 1);
-    }
+      function decrement(id) {
+        var countElement = document.getElementById(id);
+        var count = parseInt(countElement.innerText.split(" ")[2]);
+        countElement.innerText = "Oy sayısı: " + (count - 1);
+      }
 
-    function resetCounts() {
-      var erdoganCountElement = document.getElementById('erdoganCount');
-      var kilicdarogluCountElement = document.getElementById('kilicdarogluCount');
+      function resetCounts() {
+        var erdoganCountElement = document.getElementById("erdoganCount");
+        var kilicdarogluCountElement =
+          document.getElementById("kilicdarogluCount");
 
-      erdoganCountElement.innerText = 'Oy sayısı: 0';
-      kilicdarogluCountElement.innerText = 'Oy sayısı: 0';
-    }
-  </script>
-</body>
+        erdoganCountElement.innerText = "Oy sayısı: 0";
+        kilicdarogluCountElement.innerText = "Oy sayısı: 0";
+      }
+    </script>
+  </body>
 </html>
